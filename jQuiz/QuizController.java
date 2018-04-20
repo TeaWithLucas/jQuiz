@@ -15,7 +15,7 @@ public class QuizController {
      * @param controller
      * @param model
      */
-    public QuizController (QuizController controller, QuizModel model){
+    public QuizController(QuizController controller, QuizModel model) { 
         this.controller = controller;
         this.model = model;    
     }
@@ -25,7 +25,7 @@ public class QuizController {
      * @param args
      */
     public static void main(String[] args) {
-
+        System.out.println(args);
     }
 
 }

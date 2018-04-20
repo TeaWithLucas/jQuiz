@@ -1,3 +1,4 @@
+package jQuiz.ADT;
 
 /**
  * @author  C1740129
@@ -8,6 +9,10 @@
 public class Answer {
 
     private String[] answers;
+
+    public Answer(){
+        //Default Constructor
+    }
 
     /**
      * setAnswer()

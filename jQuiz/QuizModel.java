@@ -8,6 +8,10 @@ package jQuiz;
  */
 public class QuizModel {
     
+    public QuizModel() {
+        //Default Constructor
+    }
+
     /**
      * main()
      * @param args

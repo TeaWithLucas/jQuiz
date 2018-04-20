@@ -1,3 +1,4 @@
+import java.util.Vector;
 
 /**
  * @author  C1740129
@@ -10,7 +11,7 @@ public class Record {
     Vector<Cell> cell = new Vector<Cell>();
 
     public Record() {
-
+        //Default Constructor
     }
 
     public Record(Cell...cell) {
@@ -36,7 +37,17 @@ public class Record {
     }
 
     public static void main(String[] args) {
-        Record r = new Record()
+        
+        Cell c1 = new Cell("Kyle");
+        Cell c2 = new Cell('d');
+        Cell c3 = new Cell(17);
+        
+        Record r = new Record(c1, c2, c3);
+
+    
+    
+
+
     }
 
 
