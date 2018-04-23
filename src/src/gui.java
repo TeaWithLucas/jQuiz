@@ -14,6 +14,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Group; 
@@ -34,9 +35,20 @@ public class gui extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        BorderPane borderPane = new BorderPane();
+    	primaryStage.setTitle("jQuiz Master");
+    	
+    	QuizStartScreen(primaryStage);
+    	primaryStage.show();
+    }
+    
+    private void Question(Stage stage) {
+    	BorderPane borderPane = new BorderPane();
         root = new Pane();
         root.getChildren().add(borderPane);
+    	Scene questionScene = new Scene(root, 600, 500);
+    	questionScene.getStylesheets().add("question.css");
+    	
+        
 
         borderPane.prefWidthProperty().bind(root.widthProperty());
         borderPane.prefHeightProperty().bind(root.heightProperty());
@@ -57,15 +69,7 @@ public class gui extends Application {
         borderPane.setBottom(bottomPane);
         
         
-        box.getChildren().add(new Label("Answers"));
-        
-        for(int i=1; i<5;i++) {
-        	box.getChildren().add(new Button("Button "+i));
-        }
-        
         borderPane.setCenter(box);
-
-        primaryStage.setScene(new Scene(root, 600, 500));
 
         final Button btn = new Button(" toggle button ");
         btn.setPrefHeight(40);
@@ -79,10 +83,45 @@ public class gui extends Application {
 
         root.getChildren().add(btn);
         toggleRightContent(btn, rightPane);
+        
+        stage.setScene(questionScene);
 
-        primaryStage.show();
+        
     }
+    
+    private void QuizStartScreen(Stage stage) {
+    	BorderPane borderPane = new BorderPane();
+        root = new Pane();
+        root.getChildren().add(borderPane);
+    	Scene quizSSScene = new Scene(root, 600, 500);
+    	quizSSScene.getStylesheets().add("quizstartscreen.css");
+        
+        
 
+        borderPane.prefWidthProperty().bind(root.widthProperty());
+        borderPane.prefHeightProperty().bind(root.heightProperty());
+        
+        VBox box = new VBox();
+        box.setStyle("-fx-background-color: lightgray;");
+        box.setAlignment(Pos.CENTER);
+        
+        Text mainText = new Text("Welcome!!");
+        mainText.setFont(Font.font ("Verdana", 40));
+        box.getChildren().add(mainText);
+        Text getStarted = new Text("Click here to start!");
+        getStarted.setFont(Font.font ("Verdana", 30));
+        box.getChildren().add(getStarted);
+        getStarted.setOnMouseClicked(e -> {
+        	Question(stage);
+        });
+
+        
+        
+        borderPane.setCenter(box);
+
+        stage.setScene(quizSSScene);
+        
+    }
 
     private GridPane getRightContent() {
         GridPane pane = new GridPane();
